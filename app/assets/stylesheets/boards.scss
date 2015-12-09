@@ -1,0 +1,23 @@
+// Place all the styles related to the boards controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.grid-wrapper{
+  width: 100%;
+  margin: 0 auto;
+  .grid{
+    width: 25%;
+    height: 115px;
+    background: lightgrey;
+    border-radius: 5px;
+    border: 1px solid grey;
+    display: inline-block;
+    float: left;
+    margin: 10px;
+    &:hover{
+    background: grey;
+    border: 1px solid greenyellow;
+    cursor: pointer;
+  }
+  }
+}

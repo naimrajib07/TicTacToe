@@ -7,4 +7,11 @@
     = csrf_meta_tags
   %body
     #board-wrapper
+      #game-welcome-wrapper
+        %p
+          = fa_icon 'bolt'
+          Welcome To Play
+          = fa_icon 'bolt'
+        %h1
+          Tic-Tac-Toe
       = yield
