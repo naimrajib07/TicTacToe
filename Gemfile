@@ -36,6 +36,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'haml'
 # Documentation
 gem 'yard'
+# Font Awesome font for icons
+gem 'font-awesome-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -53,6 +55,8 @@ group :development, :test do
   gem 'guard-rubocop', require: false
   # Automatically Check Rspec Test Code
   gem 'guard-rspec', require: false
+  # Test matcher
+  gem 'shoulda-matchers', require: false
 end
 
 group :development do
