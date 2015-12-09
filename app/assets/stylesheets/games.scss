@@ -1,0 +1,28 @@
+// Place all the styles related to the games controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#game-welcome-wrapper{
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: sans-serif;
+  h1{
+    font-size: 30px;
+  }
+  .start{
+    margin-top: 15px;
+    background: darkgray;
+    width: 100px;
+    height: 40px;
+    border-radius: 12px;
+    &:hover{
+      background: grey;
+    }
+  }
+  .input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}

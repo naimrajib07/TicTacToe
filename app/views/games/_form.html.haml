@@ -1,0 +1,7 @@
+= form_for @game do |f|
+  .input
+    = f.text_field :player_1_name, class: '', placeholder: 'Player 1 Name'
+  .input
+    = f.text_field :player_2_name, class: '', placeholder:  'Player 2 Name'
+  .input
+    = f.submit 'Let\'s Start', class: 'start'
