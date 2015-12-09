@@ -47,6 +47,12 @@ group :development, :test do
   gem 'factory_girl_rails'
   # Test coverage
   gem 'simplecov'
+  #  Static Code Analyzer
+  gem 'rubocop', require: false
+  # Automatically Check Ruby Code With Rubocop
+  gem 'guard-rubocop', require: false
+  # Automatically Check Rspec Test Code
+  gem 'guard-rspec', require: false
 end
 
 group :development do
