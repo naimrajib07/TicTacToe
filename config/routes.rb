@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   resources :games, only: [:new, :show, :create] do
-    resources :boards do
+    resources :boards, only: :show do
+      member do
+        post :next_move
+      end
     end
   end
 
