@@ -1,3 +1,6 @@
+# Application controller deal with all application
+# Generic control.
+
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.

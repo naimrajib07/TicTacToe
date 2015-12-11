@@ -1,3 +1,4 @@
+# Board specific view helper method
 module BoardsHelper
   # return board player name
   def current_player_name(board)

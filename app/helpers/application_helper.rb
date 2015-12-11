@@ -1,3 +1,4 @@
+# Application helper for application wide view helper
 module ApplicationHelper
   # Make placeholder text with error message if there is any validation error
   def placeholder_with_error(object, attribute, title)

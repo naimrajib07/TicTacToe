@@ -3,11 +3,11 @@
 class BoardsController < ApplicationController
   before_action :load_game_board
 
+  # Show specific game
   def show
   end
 
   # POST Move to next Grid of the board for current court
-
   def next_move
     move_message = @board.move(params[:row], params[:col])
 
@@ -31,6 +31,7 @@ class BoardsController < ApplicationController
 
   private
 
+  # load game and respective board
   def load_game_board
     @game = Game.find(params[:game_id])
     @board = Board.find(params[:id])
