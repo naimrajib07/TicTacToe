@@ -26,52 +26,76 @@ class Board < ActiveRecord::Base
   scope :player_2_won_count, -> { where('status=?', Board.statuses[:player_2_won]).count }
   scope :drawn_count, -> { where('status=?', Board.statuses[:drawn]).count }
 
+  # Move current player in a grid.
+  #
+  # @param row {INTEGER} Row on the board
+  # @param col {INTEGER} Column on the board
+  # @return {SYMBOL}  out_of_range if row and column no exceed
+  # @return {SYMBOL}  illegal_move if move goes for the already played cell
+  # @return {SYMBOL}  game_over all move has been taken or on of the has already won
+  # @return {SYMBOL}  next_move continue to next move
+
   def move(row, col)
     row, col = row.to_i, col.to_i
+    # row and column is out of the grid cell
     return :out_of_range if !(0..2).include?(row) && !(0..2).include?(col)
+    # Already value set for specific cell
     return :illegal_move if court[row][col] != COURT_VALUE[0]
+    # all turn has been finish
     return :game_over if turn_complete?
 
     update_court(row, col)
     update_status
     switch_player
-    return :next_move, current_player
+    return :next_move
   end
 
+  # Check for the result of board
   def turn_complete?
     [:drawn, :player_1_won, :player_2_won].include?(check_board)
   end
 
   private
 
+  # initial court value assign.
   def court_initialization
     self.court = Array.new(3) { Array.new(3) { 0 } }
   end
 
+  # set initial player.
   def set_player
     self.current_player = COURT_VALUE[1]
   end
 
+  # current player cell weight
   def get_player_value
     COURT_VALUE[current_player]
   end
 
+  # after every move complete switch the user
   def switch_player
     self.current_player = current_player == COURT_VALUE[1] ? 2 : 1
   end
 
+  # after every level complete switch the user
   def switch_level_player
     self.current_player = game && game.boards.count.even? ? 1 : 2
   end
 
+  # set the value for the cell that choose by the current player by the weight
   def update_court(row, column)
     self.court[row.to_i][column.to_i] = get_player_value
   end
 
+  # initial court assign by value zero for all grid
+  # @return {BOOLEAN} True indicate the court is initially empty
   def empty_court?
     court.flatten.count(0) == 9
   end
 
+  # make virtual court where put the wining combination value
+  # as row, column and diagonal value
+  # @return {ARRAY} wining combination of grid
   def wining_court
     grid = []
 
@@ -86,6 +110,13 @@ class Board < ActiveRecord::Base
     return grid
   end
 
+  # Board status  based on wining court
+  # @return {SYMBOL} initial for the empty court
+  # @return {SYMBOL} player_1_won for player one won
+  # @return {SYMBOL} player_2_won for player two won
+  # @return {SYMBOL} drawn for no result of the board
+  # @return {SYMBOL} inprogress for not played grid cell
+
   def check_board
     return :initial if empty_court?
 
@@ -98,6 +129,7 @@ class Board < ActiveRecord::Base
     return :drawn
   end
 
+  # set board status based on the board
   def update_status
     self.status = check_board
   end
