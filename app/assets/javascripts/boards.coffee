@@ -50,6 +50,7 @@ $(document).on 'page:change', ->
 
   $('.grid').unbind('click').click ->
     grid = $(this)
+    grid.unbind('click')
     row = grid.data('row-no')
     col = grid.data('col-no')
 
