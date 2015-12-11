@@ -7,9 +7,6 @@ class BoardsController < ApplicationController
   end
 
   # POST Move to next Grid of the board for current court
-  #
-  # @param {Integer} row
-  # @param {Integer} column
 
   def next_move
     move_message = @board.move(params[:row], params[:col])
