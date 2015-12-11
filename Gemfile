@@ -57,6 +57,7 @@ group :development, :test do
   gem 'guard-rspec', require: false
   # Test matcher
   gem 'shoulda-matchers', require: false
+  gem 'shoulda-callback-matchers'
 end
 
 group :development do
