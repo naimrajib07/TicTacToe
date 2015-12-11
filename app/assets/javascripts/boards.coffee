@@ -29,7 +29,7 @@ $(document).on 'page:change', ->
     else if status == 'player_2_won'
       $('.grid').unbind('click')
       $('#level-popup').show()
-      $('#level-popup #message').text('The Board Is Win By ' + players_name[1])
+      $('#level-popup #message').text('The Board Is Won By ' + players_name[1])
     else if status == 'drawn'
       $('.grid').unbind('click')
       $('#level-popup').show()
@@ -37,9 +37,9 @@ $(document).on 'page:change', ->
 
   change_player_turn = (current_player, players) ->
     if(current_player == 1)
-      $('#player-turn #player-name').html(players[1])
-    else
       $('#player-turn #player-name').html(players[0])
+    else
+      $('#player-turn #player-name').html(players[1])
 
 
   mark_grid = (grid, current_player) ->
