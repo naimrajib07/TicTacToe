@@ -25,7 +25,7 @@ $(document).on 'page:change', ->
     if status == 'player_1_won'
       $('.grid').unbind('click') # Make sure after board has been finish, user can't able to click on grid
       $('#level-popup').show()
-      $('#level-popup #message').text('The Board Is Win By ' + players_name[0])
+      $('#level-popup #message').text('The Board Is Won By ' + players_name[0])
     else if status == 'player_2_won'
       $('.grid').unbind('click')
       $('#level-popup').show()
