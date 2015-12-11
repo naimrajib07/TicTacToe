@@ -2,22 +2,60 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.grid-wrapper{
+.grid-wrapper {
   width: 100%;
-  margin: 0 auto;
-  .grid{
-    width: 25%;
-    height: 115px;
-    background: lightgrey;
-    border-radius: 5px;
+  margin-left: 42px;
+  .grid {
+    background: lightgrey none repeat scroll 0 0;
     border: 1px solid grey;
+    border-radius: 5px;
     display: inline-block;
     float: left;
+    font-size: 80px;
+    height: 115px;
     margin: 10px;
-    &:hover{
-    background: grey;
-    border: 1px solid greenyellow;
-    cursor: pointer;
+    text-align: center;
+    vertical-align: middle;
+    width: 25%;
+    -webkit-box-shadow: 2px 3px 15px 0px grey;
+    -moz-box-shadow: 2px 3px 15px 0px grey;
+    box-shadow: 2px 3px 15px 0px grey;
+    &:hover {
+      background: grey;
+      border: 1px solid greenyellow;
+      cursor: pointer;
+    }
   }
+}
+
+.board-result {
+  clear: both;
+  display: block;
+  padding: 5px;
+  font-family: sans-serif;
+  h4 {
+    border-bottom: 2px dashed grey;
+    margin: 0 0 8px;
+    padding-bottom: 3px;
+  }
+  #player-turn {
+    color: green;
+    text-align: center;
+  }
+
+  #side-by-side-score {
+    height: 25px;
+    margin: 10px;
+    padding: 5px;
+    text-align: center;
+    width: 100%;
+    #player1, #player2, #drawn {
+      display: inline-block;
+      width: 90px;
+    }
+    .winner {
+      color: goldenrod;
+      font-size: 25px;
+    }
   }
 }

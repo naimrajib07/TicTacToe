@@ -1,9 +1,35 @@
 # Every Board has game and create new board after each game
 # has been finish.
 class BoardsController < ApplicationController
-  before_action :load_game_board, only: :show
+  before_action :load_game_board
 
   def show
+  end
+
+  # POST Move to next Grid of the board for current court
+  #
+  # @param {Integer} row
+  # @param {Integer} column
+
+  def next_move
+    move_message, current_player = @board.move(params[:row], params[:col])
+
+    respond_to do |format|
+      if move_message == :next_move
+        @board.save!
+        format.json { render json: {
+            status: @board.status, current_player: current_player,
+            move_message: move_message, code: 200
+        }
+        }
+      else
+        format.json { render json: {
+            status: @board.status, current_player: current_player,
+            move_message: move_message, code: 200
+        }
+        }
+      end
+    end
   end
 
   private
