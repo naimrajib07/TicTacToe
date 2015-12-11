@@ -15,7 +15,52 @@
  *= require_self
  */
 
-#board-wrapper{
+#board-wrapper {
     margin: 0 auto;
     width: 600px;
+    position: relative;
+
+}
+
+#board-wrapper #level-popup {
+    background: white none repeat scroll 0 0;
+    border-radius: 12px;
+    height: 275px;
+    margin-left: 150px;
+    margin-top: 170px;
+    position: absolute;
+    top: 0;
+    width: 300px;
+    -webkit-box-shadow: 2px 3px 15px 0px grey;
+    -moz-box-shadow: 2px 3px 15px 0px grey;
+    box-shadow: 2px 3px 15px 0px grey;
+}
+
+#message {
+    font-size: 24px;
+    height: 50px;
+    margin-top: 30px;
+    text-align: center;
+    width: 100%;
+}
+
+#level-popup #tropy {
+    color: goldenrod;
+    font-size: 50px;
+    font-weight: bolder;
+    margin-top: 22px;
+    text-align: center;
+}
+
+#next-level {
+    margin-top: 70px;
+    text-align: center;
+}
+
+.hide {
+    display: none;
+}
+
+.clear {
+    clear: both;
 }
