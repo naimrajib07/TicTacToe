@@ -15,7 +15,7 @@ class GamesController < ApplicationController
   end
 
   def show
-    redirect_to game_board_url(id: @board.id , game_id: @game.id)
+    redirect_to game_board_url(id: @board.id, game_id: @game.id)
   end
 
   private
@@ -26,7 +26,7 @@ class GamesController < ApplicationController
 
   def find_or_create_empty_game_board
     @game = Game.find_or_create_by(id: params[:id])
-    @board = @game.boards.latest_board
-    @board = @game.boards.create if @board.empty?
+    @board = @game.boards.order('created_at').last
+    @board = @game.boards.create if @board.nil? || @board.turn_complete?
   end
 end
