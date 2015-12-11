@@ -12,19 +12,19 @@ class BoardsController < ApplicationController
   # @param {Integer} column
 
   def next_move
-    move_message, current_player = @board.move(params[:row], params[:col])
+    move_message = @board.move(params[:row], params[:col])
 
     respond_to do |format|
       if move_message == :next_move
         @board.save!
         format.json { render json: {
-            status: @board.status, current_player: current_player,
+            status: @board.status, current_player: @board.current_player,
             move_message: move_message, code: 200
         }
         }
       else
         format.json { render json: {
-            status: @board.status, current_player: current_player,
+            status: @board.status, current_player: @board.current_player,
             move_message: move_message, code: 200
         }
         }
